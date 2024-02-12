@@ -1,0 +1,14 @@
+{
+  "prod": {
+    "searchInput": "textarea",
+    "searchButton": "",
+    "url": "https://www.google.com/",
+    "searchText": "You are hired :D"
+  },
+  "stg": {
+    "searchInput": "",
+    "searchButton": "",
+    "url": "https://www.stg-google.com/",
+    "searchText": "You are not hired :D"
+  }
+}
