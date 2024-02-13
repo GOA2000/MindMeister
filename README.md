@@ -20,7 +20,7 @@ To install the project dependencies, follow these steps:
 
 2. Navigate to the project directory:
 
-    ```cd mind_meister```
+    ```cd MindMeister```
 
 3. Install dependencies:
 
