@@ -50,9 +50,9 @@ Replace your_username and your_password with your actual credentials. If you nee
     export TEST_PASSWORD=mindMeister123
     export TEST_USERNAME=kalauzovic.gorjan+test@gmail.com
 
-3. Open Cypress test runner:
+3. Start the Cypress test runner form within the MindMeister folder:
 
-    npm run cypress:run
+    ```npm run cypress:run```
 
 ## Test Results
 
