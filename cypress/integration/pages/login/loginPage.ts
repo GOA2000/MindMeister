@@ -1,3 +1,5 @@
+import { should } from "chai"
+
 class LoginPage {
 
   username: string
@@ -28,24 +30,32 @@ class LoginPage {
   }
 
   enterUsername(username: string) {
-    cy.get(this.usernameFieldLocator,{timeout:10000}).click({ force: true })
+    cy.get(this.usernameFieldLocator, { timeout: 10000 })
+      .should('be.visible')
+      .focus()
+      .click()
       .type(username)
       .should('have.value', username);
   }
 
   enterPassword(password: string) {
-    cy.get(this.passwordFieldLocator,{timeout:10000}).click({ force: true })
+    cy.get(this.passwordFieldLocator, { timeout: 10000 })
+      .should('be.visible')
+      .focus()
+      .click()
       .type(password)
       .should('have.value', password);
   }
 
   clickLoginButton() {
-    cy.get(this.loginSubmitButtonLocator,{timeout:10000})
+    cy.get(this.loginSubmitButtonLocator, { timeout: 10000 })
+      .should('be.visible')
       .click()
       .wait(10000);
   }
 
-  loginSequence() {
+  logIn() {
+    cy.title({ timeout: 10000 }).should('eq', 'Log In | Meister')
     this.enterUsername(this.username)
     this.enterPassword(this.password)
     this.clickLoginButton()

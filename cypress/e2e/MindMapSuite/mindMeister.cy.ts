@@ -20,10 +20,9 @@ describe('MindMeister Application Tests', () => {
 
   beforeEach(()=>{
     skipAfterEach=false
-    cy.visit(landingPage.baseUrl)
-    landingPage.clickSignInLink()
-    cy.title({timeout:10000}).should('eq', 'Log In | Meister')
-    loginPage.loginSequence()
+    cy.visit(landingPage.baseUrl,{timeout:10000})
+    landingPage.goToLoginPage()
+    loginPage.logIn()
     helperMethods.skipLandingPagePlanAdvert()
   })
 
@@ -79,12 +78,9 @@ describe('MindMeister Application Tests', () => {
   });
 
   afterEach(() => {
-    cy.log(''+skipAfterEach)
     if (!skipAfterEach){
       myMapsOverviewPage.deleteMindMapOnOverviewPage()
-
     }
-     
   });
 
 });
