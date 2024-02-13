@@ -16,15 +16,15 @@ To install the project dependencies, follow these steps:
 
 1. Clone the repository:
 
-    git clone https://github.com/GOA2000/MindMeister
+    ```git clone https://github.com/GOA2000/MindMeister```
 
 2. Navigate to the project directory:
 
-    cd mind_meister
+    ```cd mind_meister```
 
 3. Install dependencies:
 
-npm install
+     ```npm install```
 
 ## Running Tests
 
