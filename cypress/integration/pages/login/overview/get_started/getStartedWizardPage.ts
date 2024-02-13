@@ -19,7 +19,8 @@ class GetStartedWizardPage {
     .find('.kr-text')
     .contains(icon) 
     .should('be.visible') 
-    .click(); 
+    .click()
+    .wait(5000); 
   }
 
   selectIconWithinSection(icon:string, section: string){

@@ -22,8 +22,6 @@ class HelperMethods {
       cy.get('header h1').should('exist').then(($header) => {
         if ($header.text().includes(selectPlanPage.headerTitleText)) {
           selectPlanPage.selectBasicPlan()
-        } else if ($header.text().includes(connectWithTasksPage.headerTitleText)) {
-          connectWithTasksPage.selectMaybeLaterForConnectWithTasks();
         } else {
           cy.log('Header title element not found or does not contain the specified text. Skipping Section.');
         }
@@ -31,7 +29,7 @@ class HelperMethods {
     }
   }
   
-  skipLandingPagePlanOrTasksAdvert() {
+  skipLandingPagePlanAdvert() {
     this.getHeaderText().then((headerText) => {
       this.handleHeader(headerText);
     });

@@ -18,42 +18,36 @@ const helperMethods = new HelperMethods
 describe('MindMeister Application Tests', () => {
   let skipAfterEach =false
 
-  // Cypress.on('uncaught:exception', (err, runnable) => {
-  //   console.error('Uncaught exception occurred:', err.message);
-  //   return false;
-  // });
-
   beforeEach(()=>{
+    skipAfterEach=false
     cy.visit(landingPage.baseUrl)
     landingPage.clickSignInLink()
     cy.title().should('eq', 'Log In | Meister')
     loginPage.loginSequence()
-    helperMethods.skipLandingPagePlanOrTasksAdvert()
+    helperMethods.skipLandingPagePlanAdvert()
   })
 
-  xit('Create Mind Map', () => {
+  it('Create Mind Map', () => {
     myMapsOverviewPage.openGetStartedWizzard();
     getStartedWizardPage.selectIconWithinSection('Mind Map', 'Layout')
     mindMapPage.backToOverviewPage()
     myMapsOverviewPage.validateExpectedNumberOfMindMapCardsOnOverviewPage(1)
   });
 
-  xit('Create Mind Map and change Mind Map text', () => {
+  it('Create Mind Map and change Mind Map text', () => {
     let mindMapTitle = 'Some Cool Mind Map'
 
     myMapsOverviewPage.openGetStartedWizzard();
     getStartedWizardPage.selectIconWithinSection('Mind Map', 'Layout')
-    cy.wait(5000)
     mindMapPage.setMindMapCoreText(mindMapTitle)
     mindMapPage.backToOverviewPage()
     myMapsOverviewPage.validateMindMapContainsText(1, mindMapTitle)
     myMapsOverviewPage.validateExpectedNumberOfMindMapCardsOnOverviewPage(1)
   });
 
-  xit('Create Mind Map and delete it', () => {
+  it('Create Mind Map and delete it', () => {
     myMapsOverviewPage.openGetStartedWizzard();
     getStartedWizardPage.selectIconWithinSection('Mind Map', 'Layout')
-    cy.wait(5000)
     mindMapPage.backToOverviewPage()
     myMapsOverviewPage.validateExpectedNumberOfMindMapCardsOnOverviewPage(1)
     myMapsOverviewPage.deleteMindMapOnOverviewPage()
@@ -72,22 +66,23 @@ describe('MindMeister Application Tests', () => {
     myMapsOverviewPage.validateExpectedNumberOfMindMapCardsOnOverviewPage(1)
   });
 
-  xit('Create and search for Mind Map', () => {
+  it('Create and search for Mind Map', () => {
     let mindMapTitle='Search Mind Map'
+
     myMapsOverviewPage.openGetStartedWizzard();
     getStartedWizardPage.selectIconWithinSection('Mind Map', 'Layout')
-    cy.wait(5000)
     mindMapPage.setMindMapCoreText(mindMapTitle)
     mindMapPage.backToOverviewPage()
     mindMapPage.searchForCreatedMindMap(mindMapTitle)
     myMapsOverviewPage.validateExpectedNumberOfMindMapCardsOnOverviewPageAfterSearch(1)
     myMapsOverviewPage.closeSearchfield()
-    skipAfterEach=false
   });
 
   afterEach(() => {
+    cy.log(''+skipAfterEach)
     if (!skipAfterEach){
       myMapsOverviewPage.deleteMindMapOnOverviewPage()
+
     }
      
   });
