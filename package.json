@@ -4,8 +4,8 @@
     "cypress-junit": "^0.0.2"
   },
   "scripts": {
-    "cypress:open": "cypress open --config chromeWebSecurity=false  --browser chrome--env current_env=$TEST_ENV,username=$TEST_USERNAME,password=$TEST_PASSWORD",
-    "cypress:run": "cypress run --config chromeWebSecurity=false  --browser chrome --env current_env=$TEST_ENV,username=$TEST_USERNAME,password=$TEST_PASSWORD"
+    "cypress:open": "cypress open --config chromeWebSecurity=false  --browser chrome --env current_env=$TEST_ENV,username=$TEST_USERNAME,password=$TEST_PASSWORD",
+    "cypress:run": "cypress run --config chromeWebSecurity=false  --browser chrome --headed --env current_env=$TEST_ENV,username=$TEST_USERNAME,password=$TEST_PASSWORD"
   },
   "dependencies": {
     "typescript": "^5.3.3"

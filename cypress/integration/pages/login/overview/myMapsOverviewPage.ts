@@ -11,23 +11,27 @@ class MyMapsOverviewPage {
   }
 
   openGetStartedWizzard() {
-    cy.get(this.createNewMindMap).click()
-    cy.contains(this.newMindMap).click();
+    cy.get(this.createNewMindMap, { timeout: 10000 })
+      .should('be.visible')
+      .click();
+
+    cy.contains(this.newMindMap)
+      .click();
   }
 
   validateExpectedNumberOfMindMapCardsOnOverviewPage(expectedNumber) {
     if (expectedNumber > 0) {
-      cy.get(this.mindMapCardsLocator).its('length').should('eq', expectedNumber + 1);
+      cy.get(this.mindMapCardsLocator,{timeout:10000}).its('length').should('eq', expectedNumber + 1);
     } else {
-      cy.get(this.mindMapCardsLocator).should('not.exist')
+      cy.get(this.mindMapCardsLocator,{timeout:10000}).should('not.exist')
     }
   }
 
   validateExpectedNumberOfMindMapCardsOnOverviewPageAfterSearch(expectedNumber) {
     if (expectedNumber > 0) {
-      cy.get(this.mindMapCardsLocator).its('length').should('eq', expectedNumber);
+      cy.get(this.mindMapCardsLocator,{timeout:10000}).its('length').should('eq', expectedNumber);
     } else {
-      cy.get(this.mindMapCardsLocator).should('not.exist')
+      cy.get(this.mindMapCardsLocator,{timeout:10000}).should('not.exist')
     }
   }
 

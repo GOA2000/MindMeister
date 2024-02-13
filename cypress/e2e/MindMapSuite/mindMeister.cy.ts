@@ -22,7 +22,7 @@ describe('MindMeister Application Tests', () => {
     skipAfterEach=false
     cy.visit(landingPage.baseUrl)
     landingPage.clickSignInLink()
-    cy.title().should('eq', 'Log In | Meister')
+    cy.title({timeout:10000}).should('eq', 'Log In | Meister')
     loginPage.loginSequence()
     helperMethods.skipLandingPagePlanAdvert()
   })

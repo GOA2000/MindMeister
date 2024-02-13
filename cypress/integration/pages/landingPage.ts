@@ -10,7 +10,7 @@ class LandingPage {
   }
 
   clickSignInLink() {
-    return cy.get(this.signInLink).should('exist').click();
+    return cy.get(this.signInLink,{timeout:10000}).should('exist').click();
   }
 }
 

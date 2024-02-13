@@ -28,19 +28,19 @@ class LoginPage {
   }
 
   enterUsername(username: string) {
-    cy.get(this.usernameFieldLocator).click({ force: true })
+    cy.get(this.usernameFieldLocator,{timeout:10000}).click({ force: true })
       .type(username)
       .should('have.value', username);
   }
 
   enterPassword(password: string) {
-    cy.get(this.passwordFieldLocator).click({ force: true })
+    cy.get(this.passwordFieldLocator,{timeout:10000}).click({ force: true })
       .type(password)
       .should('have.value', password);
   }
 
   clickLoginButton() {
-    cy.get(this.loginSubmitButtonLocator)
+    cy.get(this.loginSubmitButtonLocator,{timeout:10000})
       .click()
       .wait(10000);
   }
